@@ -1,0 +1,19 @@
+# dependencies
+node_modules
+
+# builds
+.next
+out
+!.next/trace
+
+# env/config
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.vercel
+
+# editor/cache
+.DS_Store
+*.log
