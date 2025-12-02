@@ -55,7 +55,7 @@ const skillAreas = [
     stack: ["Docker", "GitHub Actions", "Vercel", "AWS (EC2/S3/RDS)", "DigitalOcean"],
   },
   {
-    title: "Collaboration & Process",
+    title: "Collaboration & Process", 
     icon: Network,
     summary:
       "Keeping teams aligned through specs, API contracts, and review discipline so delivery stays predictable.",
