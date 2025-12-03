@@ -24,6 +24,38 @@ export default function AboutPage() {
 
         {/* Main Content */}
         <div className="space-y-12">
+          {/* Professional Photo */}
+          <section className="grid md:grid-cols-[1.1fr_0.9fr] gap-8 items-center border border-border/30 rounded-2xl p-6 bg-secondary/30 shadow-lg">
+            <div className="space-y-4">
+              <p className="text-sm uppercase tracking-[0.2em] text-pink-500">Professional Portrait</p>
+              <h2 className="text-3xl font-bold text-foreground leading-tight">Meet the engineer behind the platforms</h2>
+              <p className="text-muted-foreground leading-relaxed">
+                A clean, confident headshot to put a face to the systems I build. I value clarity, accountability, and
+                approachable collaboration—qualities clients and teammates can expect when we work together.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                {["Remote-friendly", "Available for consulting", "Open to mentorship"].map((pill) => (
+                  <span
+                    key={pill}
+                    className="text-xs bg-background/70 border border-border/40 px-3 py-1 rounded-full text-muted-foreground"
+                  >
+                    {pill}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-pink-500/20 via-transparent to-secondary/50 blur-2xl" />
+              <div className="relative rounded-2xl overflow-hidden border border-border/50 shadow-2xl">
+                <img
+                  src="/nasir-removebg.png"
+                  alt="Professional portrait of MD Nasir Wahid"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </section>
+
           {/* Introduction */}
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-foreground">Professional Background</h2>
