@@ -1,4 +1,5 @@
 export type Project = {
+  slug: string
   title: string
   description: string
   image: string
@@ -6,10 +7,12 @@ export type Project = {
   fullDescription?: string
   metrics?: { label: string; value: string }[]
   details?: Array<{ title: string; items: string[] }>
+  liveUrl?: string
 }
 
 export const projects: Project[] = [
   {
+    slug: "sharetrip-accounting-platform",
     title: "ShareTrip — Accounting Platform with Real-Time Consolidation",
     description:
       "I developed the accounting platform for ShareTrip, an audit-ready double-entry system built for high-volume transactions. It supports real-time consolidation across products, automated journal entries, and accurate ledger posting with 95–100% success. The platform improved reporting performance by ~40% through optimized queries, indexing, and scalable data pipelines.",
@@ -60,6 +63,7 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "business-pos-with-integrated-double-entry-accounting-system",
     title: "Business POS with Integrated Double-Entry Accounting System",
     description:
       "I designed and developed a Point of Sale (POS) and finance system that automatically handles accounting in the background while users focus on sales and purchases. Whenever a sale, purchase, or return is made in the POS, the system generates the correct double-entry journal records automatically, keeping the accounts always up to date and audit-ready.",
@@ -87,11 +91,12 @@ export const projects: Project[] = [
     ]
   },
   {
+    slug: "huhulive-streaming-backend",
     title: "HuhuLive — Streaming Backend for a TikTok-Like Real-Time Live Platform",
     description:
       "I developed the backend and admin panel for HuhuLive, a real-time live streaming platform similar to TikTok Live. The app lets hosts go live with video or audio rooms, receive gifts from viewers, and earn coins that can be converted to real money. The backend handles live video streaming, real-time chat, gift transactions, and user management.",
     image: "/projects/huhulive.jpg",
-    tags: ["Node.js", "Express.js", "WebSocket", "Firebase", "Google Play Billing"],
+    tags: ["Express.js", "WebSocket", "Firebase", "Google Pay"],
     fullDescription:
       "Engineered the backend for a live streaming platform supporting real-time video delivery, interactive chat, and in-app purchases. Implemented WebSocket communication for low-latency interactions, Google Play Billing integration with webhook verification, and comprehensive analytics. The platform handles millions of real-time events with measurable improvements in user engagement and revenue.",
     metrics: [
@@ -114,3 +119,7 @@ export const projects: Project[] = [
     ]
   },
 ]
+
+export function getProjectBySlug(slug: string): Project | undefined {
+  return projects.find((project) => project.slug === slug)
+}

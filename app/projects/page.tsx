@@ -6,7 +6,7 @@ import { ChevronLeft } from "lucide-react"
 import { projects } from "@/lib/data/projects"
 
 export default function ProjectsPage() {
-  
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <main className="max-w-5xl mx-auto px-4">
@@ -41,7 +41,9 @@ export default function ProjectsPage() {
               <div className="p-8 space-y-6">
                 {/* Title and Description */}
                 <div>
-                  <h2 className="text-3xl font-bold text-foreground mb-3">{project.title}</h2>
+                  <Link href={`/projects/${project.slug}`}>
+                    <h2 className="text-3xl font-bold text-foreground mb-3">{project.title}</h2>
+                  </Link>
                   <p className="text-muted-foreground text-lg leading-relaxed mb-4">{project.description}</p>
                   <p className="text-muted-foreground leading-relaxed">{project.fullDescription}</p>
                 </div>
@@ -83,6 +85,11 @@ export default function ProjectsPage() {
                     ))}
                   </div>
                 </div>
+                <Button asChild>
+                  <Link href={`/projects/${project.slug}`} target="_blank">
+                    View Details
+                  </Link>
+                </Button>
               </div>
             </div>
           ))}

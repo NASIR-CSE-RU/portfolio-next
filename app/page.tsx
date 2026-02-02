@@ -81,8 +81,8 @@ export default function Page() {
             </div>
             <p className="text-lg text-muted-foreground max-w-5xl mx-auto">
               Full-Stack Software Engineer (5+ years) specializing in PHP/Laravel, Node.js/NestJS, and Next.js/React. Built audit-ready double-entry accounting and POS-integrated commerce platforms;
-               reduced reporting load ~40% and improved P95 latency ~30%. Designed and shipped event-driven microservices using RabbitMQ/Redis with MySQL/PostgreSQL, and delivered production deployments
-                on Docker + AWS/DigitalOcean with CI/CD, tracing, and measurable SLI/SLO/SLA targets.
+              reduced reporting load ~40% and improved P95 latency ~30%. Designed and shipped event-driven microservices using RabbitMQ/Redis with MySQL/PostgreSQL, and delivered production deployments
+              on Docker + AWS/DigitalOcean with CI/CD, tracing, and measurable SLI/SLO/SLA targets.
             </p>
           </div>
 
@@ -110,7 +110,7 @@ export default function Page() {
         </section>
 
         {/* About Section */}
-        <section id="about" className="min-h-screen flex items-center py-20 px-4 md:px-0">
+        <section id="about" className="min-h-screen flex items-center px-4 md:px-0">
           <div className="max-w-6xl mx-auto w-full">
             <div className="grid md:grid-cols-2 gap-12 w-full">
               {/* Profile Image */}
@@ -129,9 +129,9 @@ export default function Page() {
                 <div>
                   <h2 className="text-5xl font-bold text-pink-500 mb-6">About Me</h2>
                   <p className="text-lg text-muted-foreground leading-relaxed">
-                    I’m a backend-focused software engineer based in Dhaka, Bangladesh with 5+ years of experience building robust, 
-                    scalable systems. I specialize in PHP/Laravel and Node.js/NestJS, and also build modern web UIs with React.js 
-                    and Next.js. I have hands-on experience designing event-driven microservices, audit-ready accounting platforms, 
+                    I’m a backend-focused software engineer based in Dhaka, Bangladesh with 5+ years of experience building robust,
+                    scalable systems. I specialize in PHP/Laravel and Node.js/NestJS, and also build modern web UIs with React.js
+                    and Next.js. I have hands-on experience designing event-driven microservices, audit-ready accounting platforms,
                     and high-performance APIs, with a strong focus on clean architecture, measurable observability, and proven performance improvements.
                   </p>
                 </div>
@@ -206,7 +206,9 @@ export default function Page() {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                  <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                  <Link href={`/projects/${project.slug}`}>
+                    <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                  </Link>
                   <p className="text-muted-foreground text-sm mb-4">{project.description}</p>
                   <div className="flex gap-2 mb-4 flex-wrap">
                     {project.tags.map((tag, i) => (
