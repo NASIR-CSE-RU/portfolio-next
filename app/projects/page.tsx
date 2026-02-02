@@ -86,7 +86,7 @@ export default function ProjectsPage() {
                   </div>
                 </div>
                 <Button asChild>
-                  <Link href={`/projects/${project.slug}`} target="_blank">
+                  <Link href={`/projects/${project.slug}`}>
                     View Details
                   </Link>
                 </Button>
