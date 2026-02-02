@@ -25,6 +25,9 @@ import {
   TrendingUp,
 } from "lucide-react"
 import Link from "next/link"
+import { experiences } from "@/lib/data/experience"
+import { projects } from "@/lib/data/projects"
+import { skillGroups } from "@/lib/data/skills"
 
 const skillIconMap: Record<string, React.ReactNode> = {
   // Backend
@@ -69,27 +72,28 @@ export default function Page() {
         {/* Hero Section */}
         <section className="min-h-screen flex flex-col items-center justify-center text-center space-y-6 px-4 py-20">
           <div className="space-y-4">
-            <h1 className="text-6xl md:text-8xl font-bold text-primary">MD Nasir Wahid</h1>
-            <p className="text-2xl md:text-3xl text-foreground font-semibold">Backend Software Engineer</p>
+            <h1 className="text-6xl md:text-8xl font-bold text-primary">MD NASIR WAHID</h1>
+            <p className="text-2xl md:text-3xl text-foreground font-semibold">Sr. Software Engineer</p>
             <div className="flex items-center justify-center gap-2">
               <div className="h-0.5 w-16 bg-pink-500"></div>
               <div className="h-0.5 w-1 bg-pink-500"></div>
               <div className="h-0.5 w-16 bg-pink-500"></div>
             </div>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Backend-leaning Software Engineer with 5+ years of expertise in PHP/Laravel, Node.js/NestJS, and building
-              scalable microservices. Specialized in audit-ready accounting platforms and event-driven architectures.
+            <p className="text-lg text-muted-foreground max-w-5xl mx-auto">
+              Full-Stack Software Engineer (5+ years) specializing in PHP/Laravel, Node.js/NestJS, and Next.js/React. Built audit-ready double-entry accounting and POS-integrated commerce platforms;
+               reduced reporting load ~40% and improved P95 latency ~30%. Designed and shipped event-driven microservices using RabbitMQ/Redis with MySQL/PostgreSQL, and delivered production deployments
+                on Docker + AWS/DigitalOcean with CI/CD, tracing, and measurable SLI/SLO/SLA targets.
             </p>
           </div>
 
           {/* Social Links */}
           <div className="flex gap-6 justify-center pt-4">
-            <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+            <Link href="https://github.com/NASIR-CSE-RU" target="_blank" rel="noopener noreferrer">
               <Button variant="ghost" size="icon" className="hover:text-pink-500 hover:bg-pink-500/10">
                 <Github className="h-5 w-5" />
               </Button>
             </Link>
-            <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+            <Link href="https://www.linkedin.com/in/nasir-cse-ru/" target="_blank" rel="noopener noreferrer">
               <Button variant="ghost" size="icon" className="hover:text-pink-500 hover:bg-pink-500/10">
                 <Linkedin className="h-5 w-5" />
               </Button>
@@ -125,11 +129,10 @@ export default function Page() {
                 <div>
                   <h2 className="text-5xl font-bold text-pink-500 mb-6">About Me</h2>
                   <p className="text-lg text-muted-foreground leading-relaxed">
-                    I'm a backend-focused software engineer based in Dhaka, Bangladesh with 5+ years of experience
-                    building robust, scalable systems. I specialize in PHP/Laravel and Node.js/NestJS, with expertise in
-                    designing event-driven microservices, audit-ready accounting platforms, and high-performance APIs.
-                    I'm passionate about solving real-world challenges through clean architecture, measurable
-                    observability, and proven performance improvements.
+                    I’m a backend-focused software engineer based in Dhaka, Bangladesh with 5+ years of experience building robust, 
+                    scalable systems. I specialize in PHP/Laravel and Node.js/NestJS, and also build modern web UIs with React.js 
+                    and Next.js. I have hands-on experience designing event-driven microservices, audit-ready accounting platforms, 
+                    and high-performance APIs, with a strong focus on clean architecture, measurable observability, and proven performance improvements.
                   </p>
                 </div>
 
@@ -163,32 +166,7 @@ export default function Page() {
             </div>
 
             <div className="space-y-8">
-              {[
-                {
-                  company: "ShareTrip Ltd.",
-                  role: "Software Engineer",
-                  period: "Aug 2022 – Present",
-                  highlights: [
-                    "Delivered double-entry accounting platform (PHP, Yii2, MySQL, Redis, RabbitMQ) reducing finance workload ~70%",
-                    "Achieved 95% to 100% ledger success with DLQs, idempotent consumers, and audit/replay pipelines",
-                    "Migrated reporting to async Redis queues, cutting load ~40% and adding SLI dashboards",
-                    "Raised airline ticketing SLA 84% to 96% by enforcing TOTP 2FA and audited state machines",
-                    "Improved conversion +9% and reduced drop-offs −22% in Next.js ancillary flows",
-                  ],
-                },
-                {
-                  company: "Desktop IT",
-                  role: "Software Engineer",
-                  period: "Aug 2020 – Jul 2022",
-                  highlights: [
-                    "Cut POS-storefront sync lag ~85% and raised on-hand accuracy 92% to 98%",
-                    "Reduced P95 latency ~30% at peak via MySQL indexing, pooling, and Redis caching",
-                    "Reduced exam-result TAT ~90% and manual grading effort ~95% (theExamly platform)",
-                    "Increased live-session engagement ~25% and ARPPU ~18% for HuhuLive streaming backend",
-                    "Implemented Google Play Billing with webhook verification and idempotent retries",
-                  ],
-                },
-              ].map((exp, idx) => (
+              {experiences.map((exp, idx) => (
                 <div key={idx} className="border border-border/30 rounded-lg p-8 bg-secondary/20">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                     <div>
@@ -219,29 +197,7 @@ export default function Page() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
-              {[
-                {
-                  title: "ShareTrip - Accounting Platform",
-                  description:
-                    "Double-entry accounting system with real-time consolidation, achieving 95-100% ledger success and 40% reporting performance improvement.",
-                  image: "/ecommerce-platform-concept.png",
-                  tags: ["PHP", "Yii2", "MySQL", "RabbitMQ"],
-                },
-                {
-                  title: "E-Commerce Platform",
-                  description:
-                    "Multi-vendor e-commerce platform with JWT-secured APIs, OpenAPI documentation, and inventory sync automation.",
-                  image: "/task-management-app.png",
-                  tags: ["Laravel", "Next.js", "PostgreSQL"],
-                },
-                {
-                  title: "HuhuLive - Streaming Backend",
-                  description:
-                    "Low-latency streaming and chat backend with real-time notifications, Google Play Billing integration, and engagement dashboards.",
-                  image: "/ai-chat-interface.png",
-                  tags: ["Express.js", "WebSocket", "Firebase"],
-                },
-              ].map((project, idx) => (
+              {projects.map((project, idx) => (
                 <div key={idx} className="group">
                   <div className="relative aspect-video rounded-lg overflow-hidden border border-border/20 mb-4">
                     <img
@@ -273,28 +229,7 @@ export default function Page() {
             </div>
 
             <div className="space-y-8">
-              {[
-                {
-                  category: "Backend",
-                  skills: ["PHP", "Laravel", "Yii2", "Node.js", "NestJS", "TypeScript"],
-                },
-                {
-                  category: "APIs & Architecture",
-                  skills: ["REST", "OpenAPI/Swagger", "JWT/OAuth2", "Microservices", "Event-driven", "Rate limiting"],
-                },
-                {
-                  category: "Data & Messaging",
-                  skills: ["MySQL", "PostgreSQL", "Redis", "RabbitMQ", "DLQ", "Idempotency"],
-                },
-                {
-                  category: "DevOps & Tools",
-                  skills: ["Docker", "Git", "AWS", "DigitalOcean", "CI/CD", "SLI/SLO/SLA"],
-                },
-                {
-                  category: "Frontend",
-                  skills: ["React", "Next.js", "TypeScript", "Core Web Vitals", "A/B Testing"],
-                },
-              ].map((skillGroup, idx) => (
+              {skillGroups.map((skillGroup, idx) => (
                 <div key={idx}>
                   <h3 className="text-lg font-bold text-pink-500 mb-4">{skillGroup.category}</h3>
                   <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">

@@ -6,15 +6,15 @@ import { ChevronLeft } from "lucide-react"
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-background text-foreground pt-20">
-      <main className="max-w-4xl mx-auto px-4 py-12">
+    <div className="min-h-screen bg-background text-foreground">
+      <main className="max-w-4xl mx-auto px-4">
         {/* Back Button */}
-        <Link href="/">
+        {/* <Link href="/">
           <Button variant="ghost" className="mb-8 text-muted-foreground hover:text-foreground">
             <ChevronLeft className="w-4 h-4 mr-2" />
             Back to Home
           </Button>
-        </Link>
+        </Link> */}
 
         {/* Page Header */}
         <div className="mb-12">

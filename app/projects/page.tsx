@@ -3,87 +3,20 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ChevronLeft } from "lucide-react"
+import { projects } from "@/lib/data/projects"
 
 export default function ProjectsPage() {
-  const projects = [
-    {
-      title: "ShareTrip - Accounting Platform",
-      description:
-        "A comprehensive double-entry accounting system built for a major travel booking platform. This platform handles all financial transactions, ledger reconciliation, and reporting with 100% accuracy.",
-      fullDescription:
-        "The accounting platform was designed to automate and simplify complex financial operations. It processes thousands of daily transactions with real-time consolidation, ensuring perfect ledger accuracy through DLQs, idempotent consumers, and comprehensive audit trails. The system also manages rate limiting, retry logic, and state reconciliation.",
-      image: "/ecommerce-platform-concept.png",
-      tags: ["PHP", "Yii2", "MySQL", "Redis", "RabbitMQ", "Message Queue"],
-      metrics: [
-        { label: "Ledger Accuracy", value: "100%" },
-        { label: "Workload Reduction", value: "70%" },
-        { label: "Processing Load Cut", value: "40%" },
-      ],
-      features: [
-        "Double-entry bookkeeping with full audit trail",
-        "Real-time ledger consolidation",
-        "DLQ and idempotent consumer architecture",
-        "Advanced reporting with Redis async queues",
-        "SLI/SLO monitoring dashboards",
-        "Webhook verification and retry mechanisms",
-      ],
-    },
-    {
-      title: "E-Commerce Platform",
-      description:
-        "A full-stack e-commerce solution handling product management, inventory synchronization, and multi-vendor operations with secured REST APIs.",
-      fullDescription:
-        "Built a scalable e-commerce backend with Laravel, supporting POS integration with real-time inventory sync. The platform maintains 98% on-hand accuracy through optimized database queries and Redis caching. Implemented JWT-based authentication, OpenAPI documentation, and rate limiting for secure API endpoints.",
-      image: "/task-management-app.png",
-      tags: ["Laravel", "PostgreSQL", "Redis", "JWT", "OpenAPI"],
-      metrics: [
-        { label: "Sync Lag Reduced", value: "85%" },
-        { label: "Accuracy", value: "98%" },
-        { label: "P95 Latency Cut", value: "30%" },
-      ],
-      features: [
-        "Real-time inventory synchronization",
-        "Multi-vendor storefront management",
-        "JWT-secured REST APIs with OpenAPI specs",
-        "MySQL indexing and connection pooling optimization",
-        "Redis caching for high-traffic endpoints",
-        "Transaction logging and audit trails",
-      ],
-    },
-    {
-      title: "HuhuLive - Streaming Backend",
-      description:
-        "A low-latency streaming platform backend with real-time chat, notifications, and monetization features supporting thousands of concurrent users.",
-      fullDescription:
-        "Engineered the backend for a live streaming platform supporting real-time video delivery, interactive chat, and in-app purchases. Implemented WebSocket communication for low-latency interactions, Google Play Billing integration with webhook verification, and comprehensive analytics. The platform handles millions of real-time events with measurable improvements in user engagement and revenue.",
-      image: "/ai-chat-interface.png",
-      tags: ["Node.js", "Express.js", "WebSocket", "Firebase", "Google Play Billing"],
-      metrics: [
-        { label: "Engagement Increase", value: "25%" },
-        { label: "ARPPU Growth", value: "18%" },
-        { label: "Result TAT Reduction", value: "90%" },
-      ],
-      features: [
-        "Low-latency WebSocket streaming",
-        "Real-time chat and notifications",
-        "Google Play Billing integration",
-        "Webhook verification and idempotent retries",
-        "User analytics and engagement tracking",
-        "Scalable event-driven architecture",
-      ],
-    },
-  ]
-
+  
   return (
-    <div className="min-h-screen bg-background text-foreground pt-20">
-      <main className="max-w-5xl mx-auto px-4 py-12">
+    <div className="min-h-screen bg-background text-foreground">
+      <main className="max-w-5xl mx-auto px-4">
         {/* Back Button */}
-        <Link href="/">
+        {/* <Link href="/">
           <Button variant="ghost" className="mb-8 text-muted-foreground hover:text-foreground">
             <ChevronLeft className="w-4 h-4 mr-2" />
             Back to Home
           </Button>
-        </Link>
+        </Link> */}
 
         {/* Page Header */}
         <div className="mb-12">
@@ -96,7 +29,7 @@ export default function ProjectsPage() {
           {projects.map((project, idx) => (
             <div key={idx} className="border border-border/30 rounded-lg overflow-hidden bg-secondary/20">
               {/* Project Image */}
-              <div className="relative h-96 overflow-hidden">
+              <div className="relative h-150 overflow-hidden">
                 <img
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
@@ -115,7 +48,7 @@ export default function ProjectsPage() {
 
                 {/* Metrics */}
                 <div className="grid md:grid-cols-3 gap-4">
-                  {project.metrics.map((metric, i) => (
+                  {project?.metrics?.map((metric, i) => (
                     <div key={i} className="border border-border/30 rounded-lg p-4 text-center bg-background/30">
                       <div className="text-2xl font-bold text-pink-500 mb-1">{metric.value}</div>
                       <div className="text-xs text-muted-foreground">{metric.label}</div>
@@ -125,12 +58,12 @@ export default function ProjectsPage() {
 
                 {/* Features */}
                 <div>
-                  <h3 className="font-semibold text-foreground mb-3">Key Features</h3>
+                  <h3 className="font-semibold text-foreground mb-3">{project.details?.[0]?.title}</h3>
                   <div className="grid md:grid-cols-2 gap-2">
-                    {project.features.map((feature, i) => (
+                    {project.details?.[0]?.items.map((item, i) => (
                       <div key={i} className="flex gap-2 text-muted-foreground text-sm">
                         <span className="text-pink-500 mt-1">✓</span>
-                        <span>{feature}</span>
+                        <span>{item}</span>
                       </div>
                     ))}
                   </div>

@@ -83,15 +83,15 @@ const skillAreas = [
 export default function SkillsPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <main className="max-w-6xl mx-auto px-4 md:px-0 py-16 space-y-12">
-        <div className="max-w-6xl mx-auto">
+      <main className="max-w-6xl mx-auto px-4 md:px-0 space-y-12">
+        {/* <div className="max-w-6xl mx-auto">
           <Link href="/">
             <Button variant="ghost" className="mb-8 text-muted-foreground hover:text-foreground">
               <ChevronLeft className="w-4 h-4 mr-2" />
               Back to Home
             </Button>
           </Link>
-        </div>
+        </div> */}
 
         <header className="space-y-4 text-center">
           <Badge variant="outline" className="text-pink-500 border-pink-500/40 text-base font-semibold px-4 py-2">
